@@ -1,52 +1,62 @@
-# Number guessing game
-
-# import the random module, to help generate the random number between the provided limits.
+# the random module to import the random function.
 import random
 
-# welcome message
-print("Welcome to the number guessing game!")
-# enter yes or no to either get started with the game, or end the game.
-print("Enter \"y\" or \"yes\" to get started or \"n\" or \"no\" to abort the program: ")
-
-enterCode = int(input("y | yes or n | no : "))
-if (enterCode.lower() == "yes" or enterCode.lower() == "y") :
-    # lower limit, asks for the starting point of the range.
-    lowerPoint = int(input("Enter the starting point for the range: "))
-    # higher limit, asks for the ending point of the range.
-    higherPoint = int(input("Enter the ending point for the range: "))
-    
-    # the computer chooses the random number : 
-    numberChosen = random.randint(lowerPoint, higherPoint)
+# starts the game with the input response.
+def startGame () :
+    response = input("Do you want to play the number guesser game...Enter yes or no to get started: ")
+    if response.lower() == "yes" :
+        print("response was : yes")
+        runningProgramStatement ()
+        chooseNumber ()
         
-    print("To guess the number between {} and {}!".format(lowerPoint, higherPoint))
+    elif response.lower() == "no" :
+        return "See you the next time!"
+
+# function for the computer to choose the number
+def chooseNumber () :
+    print("The Computer has chosen the number...")
+    numberChosen = random.randint(0, 100)
+    runningProgramStatement ()
+    initializeGame (numberChosen)
+
+
+def initializeGame (numberChosen) :
+    print("Your task is to guess the number chosen by the computer...")
+    print("You will be provided with 10 tries...")
+    print("With every unsuccessful attempt, the computer will provide a hint to you...")
+    print("Good luck!")
     
-    # this will keep a track of the user's score through the game. Maximum tries is 8.
-    scoreKeeper = 0
-    # tries limit, maximum number of tries for the user.
-    maximumAttempts = 8
+    attemptsLeft = 10
+    runningProgramStatement ()
+    guessNumberGame (attemptsLeft, numberChosen)
     
-    for i in range (1, maximumAttempts+1) :
-        # this loop will run as long as the score keeper is less than 8.
-        if scoreKeeper < 8:
-            print("Guess a random number....")
-            # takes the input for number by the user.
-            guessedNumber = int(input("---> "))
+# function to guess the number chosen by the computer
+def guessNumberGame (attemptsLeft, numberChosen) :
+    while (attemptsLeft != 0) :
+        guessNumber = int(input("---> Guess your number ---> "))
+        if (guessNumber > 100//2) and (guessNumber != numberChosen) :
+            # print("...choose a number between mid point of the range and till the end...")
+            attemptsLeft -= 1
+        if (guessNumber < numberChosen//2) and (guessNumber != numberChosen) :
+            print("")
+        if guessNumber == numberChosen :
+            gameOver (attemptsLeft)
+
+# function for the final part of the game.
+def gameOver (attemptsLeft, numberChosen) :
+    if attemptsLeft == 10 :
+        print("...holy smokes, that was amazing, good job mate...")
+    if attemptsLeft >= 7 and attemptsLeft < 10:
+        print("...good job, you took less tries compared to your other attempts...")
+    elif attemptsLeft >= 3 and attemptsLeft < 7 :
+        print("...well done, see you next time, remember to make your judgement better, always \'USE THE FORCE!!!\'...")
+    elif attemptsLeft > 0 and attemptsLeft < 3 :
+        print("...good job, you finally did it, thanks for playing the complete run of the game, adios amigo...")
+    elif attemptsLeft == 0 :
+        print("...that was a surprising roller coster of events back there, anyways, the number chosen by the computer is {}, see you next time buddy...".format(numberChosen))
             
-            # if the guessed number is not equal to the chosen number and the maximum attempts are not equal to zero.
-            if guessedNumber != numberChosen and maximumAttempts != 0 :
-                # decrements the maximum attempts by the user, the user gets 8 chances to correctly guess the number.
-                # if failed to do so, the maximumAttempt decrements by 1, and the score keeper increments by 1.
-                maximumAttempts -= 1
-                scoreKeeper += 1
-                print("Hmmm, all right let me give you a little hint!")
-                
-                # first case, if the guessed number is in the upper half of the number, and the "number chosen" is also in the upper half of the number range.
-                if ((numberChosen >= higherPoint//2) and  (guessedNumber >= higherPoint//2) and (guessedNumber <= higherPoint)) :
-                    
-                    
-                
-                
-elif (enterCode.lower() == "no" or enterCode.lower() == "n") :
-    print("See you the next time!")
-else :
-    print("Invalid answer!")
+# function for the running program statement
+def runningProgramStatement () :
+    print("...RUNNING PROGRAM...")
+# takes the input response.
+print(startGame ())
