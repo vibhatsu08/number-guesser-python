@@ -41,7 +41,7 @@ def initializeGame (numberChosen) :
     timeDelay ()
     print("-> Your task is to guess the number chosen by the computer...")
     timeDelay ()
-    print("-> You will be provided with 10 tries...")
+    print("-> You will be provided with 10 attempts...")
     timeDelay ()
     print("-> With every unsuccessful attempt, the computer will provide a hint to you...")
     timeDelay ()
@@ -79,7 +79,7 @@ def guessNumberGame (attempts, numberChosen) :
 
 # Function for the final part of the game.
 def gameOver (attempts, numberChosen) :
-    print("-> AWESOME, you've correctly guessed the number, it took you {} tries to get to the correct answer!".format(attempts))
+    print("-> AWESOME, you've correctly guessed the number, it took you {} attempts to get to the correct answer!".format(attempts))
     return ""
             
 # Function for the running program statement
