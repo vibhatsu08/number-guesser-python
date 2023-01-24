@@ -1,65 +1,73 @@
-# the random module to import the random function.
+# All the "hints given by the computer" will be enclosed between "... ..."
+# Any statements asking for "input" will begin with a "---> " and end with a " : "
+# Any other statements, "stating the obvious" will begin with a "-> "
+# The running program statement will be enclosed between "### ###"
+
+# The random module to import the random function.
 import random
 
-# starts the game with the input response.
+# Starts the game with the input response.
 def startGame () :
-    response = input("Do you want to play the number guesser game...Enter yes or no to get started: ")
+    # Asks for input, yes or no.
+    response = input("---> Do you want to play the number guesser game...Enter yes or no to get started : ")
+    # If the reponse from the user is yes.
     if response.lower() == "yes" :
-        print("response was : yes")
+        print("-> Response was : yes")
         runningProgramStatement ()
         chooseNumber ()
         
+    # If the response from the user is no.
     elif response.lower() == "no" :
-        return "See you the next time!"
-    return "Thank you for playing!, See you next Time!"
+        return "-> See you the next time!"
+    return "-> Thank you for playing!, See you next Time!"
 
-# function for the computer to choose the number
+# Function for the computer to choose the number
 def chooseNumber () :
-    print("The Computer has chosen the number...")
+    print("-> The Computer has chosen the number...")
     numberChosen = random.randint(0, 100)
     runningProgramStatement ()
     initializeGame (numberChosen)
 
 def initializeGame (numberChosen) :
-    # tbd - convert these print statements into an array of strings to be looped and printed.
-    print("Your task is to guess the number chosen by the computer...")
-    print("You will be provided with 10 tries...")
-    print("With every unsuccessful attempt, the computer will provide a hint to you...")
-    print("Good luck!")
+    # TBD - convert these print statements into an array of strings to be looped and printed.
+    print("-> Your task is to guess the number chosen by the computer...")
+    print("-> You will be provided with 10 tries...")
+    print("-> With every unsuccessful attempt, the computer will provide a hint to you...")
+    print("-> Good luck!")
     
-    # number of attempts for the user, starts at 0, will keep incrementing by 1.
+    # Number of attempts for the user, starts at 0, will keep incrementing by 1.
     attempts = 0
     runningProgramStatement ()
-    print("...guess your number...")
+    print("---> Guess your number : ")
     guessNumberGame (attempts, numberChosen)
     
-# function to guess the number chosen by the computer
+# Function to guess the number chosen by the computer
 def guessNumberGame (attempts, numberChosen) :
     guessNumber = int(input())
     if guessNumber > 100 or guessNumber < 0 :
-        print("...c'mon, be realistic, you need to choose a number between 0 and 100...")
+        print("...C'mon, be realistic, you need to choose a number between 0 and 100...")
         attempts += 1
         guessNumberGame (attempts, numberChosen)
     if guessNumber > numberChosen :
-        print("...try lower...")
+        print("...Try lower...")
         attempts += 1
         guessNumberGame (attempts, numberChosen)
     if guessNumber < numberChosen :
-        print("...try higher...")
+        print("...Try higher...")
         attempts += 1
         guessNumberGame (attempts, numberChosen)
         
     if guessNumber == numberChosen :
         gameOver (attempts, numberChosen)
 
-# function for the final part of the game.
+# Function for the final part of the game.
 def gameOver (attempts, numberChosen) :
-    print("---AWESOME, you've correctly guessed the number, it took you {} tries to get to the correct answer---".format(attempts))
+    print("-> AWESOME, you've correctly guessed the number, it took you {} tries to get to the correct answer!".format(attempts))
     return ""
             
-# function for the running program statement
+# Function for the running program statement
 def runningProgramStatement () :
-    print("...RUNNING PROGRAM...")
+    print("### RUNNING PROGRAM ###")
     
-# takes the input response.
+# Takes the input response.
 print(startGame ())
