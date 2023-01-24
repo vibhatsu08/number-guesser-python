@@ -7,3 +7,4 @@ ProjectLog[2] - Scrapped the whole function for older code with a newer approach
 ProjectLog[3] - Completed the final build of the program, now will be working on improving the program, and removing any kind of bugs. </br>
 ProjectLog[4] - Added some changes to the statements throughout the game, to make it a little more polished. </br>
 ProjectLog[5] - Used the time module to add a little bit of a graceful delay to the program, to give it a more of a retro vibe. </br>
+ProjectLog[6] - Added the extra else statement at the beginning for the response, now if not answer with "yes" or "no", the program will continue to ask for the correct input until fed with the correct input. </br>
