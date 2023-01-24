@@ -8,3 +8,4 @@ ProjectLog[3] - Completed the final build of the program, now will be working on
 ProjectLog[4] - Added some changes to the statements throughout the game, to make it a little more polished. </br>
 ProjectLog[5] - Used the time module to add a little bit of a graceful delay to the program, to give it a more of a retro vibe. </br>
 ProjectLog[6] - Added the extra else statement at the beginning for the response, now if not answer with "yes" or "no", the program will continue to ask for the correct input until fed with the correct input. </br>
+ProjectLog[7] - In the future, i'll be working on the computer side of the guessing of the number. The user will have two options, to either let the computer choose the number to be guessed, or choose the number to be guessed by the computer. </br>
