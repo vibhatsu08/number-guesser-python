@@ -22,6 +22,10 @@ def startGame () :
     # If the response from the user is no.
     elif response.lower() == "no" :
         return "-> See you the next time!"
+    
+    else :
+        startGame ()
+    
     return "-> Thank you for playing!, See you next Time!"
 
 # Function for the computer to choose the number
