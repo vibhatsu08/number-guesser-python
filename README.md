@@ -5,6 +5,8 @@ Title - Number Guessing game - Python</br>
 Description - V1. lets the computer choose the number to be guessed by the user in a certain number of attempts. The program provides basic instructions to the game, and simple hints to play the game. </br>
 Run command **`python3 main.py`** to play the game. </br>
 </br>
+<img width="1440" alt="Screenshot 2023-01-24 at 06 41 51" src="https://user-images.githubusercontent.com/37664832/214192723-9ced4c56-17ac-4027-b44c-77376b01ff5c.png">
+</br>
 ProjectLog[0] - Working on the first prototype of the number guessing game. This prototype literally has no functions, just random lines of code here and there. Most likely will scrap this code, for a better version of the game, by the next project log. </br>
 ProjectLog[1] - First function will be to initiate the start of the game. Implemented functions for the game. The functions for the game include, 1) start of the game 2) choosing the number by the computer 3) initializing the game, and 4) guessing the number game.</br>
 ProjectLog[2] - Scrapped the whole function for older code with a newer approach to handle the attempts being made to guess the number, now the attempts will be recorded until the user correctly guesses the correct number. Same goes for the gameOver function. </br>
